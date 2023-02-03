@@ -1,5 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Movies from "./pages/Movies";
+import MovieDetail from "./pages/MovieDetail";
+import Navigation from "./components/Navigation";
 
 // 1. 3개의 페이지 필요. 홈페이지, 영화 페이지, 영화 디테일 페이지
 
@@ -20,7 +25,16 @@ import "./App.css";
 //      -검색된 영화 필터링 가능
 
 function App() {
-  return <div></div>;
+  return (
+    <div>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/Movies/:id" element={<MovieDetail />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
