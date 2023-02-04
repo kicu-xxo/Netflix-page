@@ -40,6 +40,11 @@ html {
   width: 300px;
   height: 200px;
   background-size: cover;
+  transition: all .2s;
+}
+
+.cards:hover {
+  transform: scale(1.2);
 }
 
 .cards:hover .overlay {
@@ -48,10 +53,24 @@ html {
 }
 
 .overlay {
+  padding: 15px 10px;
   width: 100%;
   height: 100%;
   opacity: 0;
   transition: all .2s;
+  cursor: pointer;
+}
+
+.overlay > h1 {
+  font-size: 30px;
+}
+
+.movie-info {
+  margin-top: 5px;
+}
+
+.movie-info > span {
+  margin-right: 5px;
 }
 
 /* Navigation.js */

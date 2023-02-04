@@ -1,11 +1,19 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ item }) => {
+  const navigate = useNavigate();
+
+  const goDetails = () => {
+    navigate(`/Movies/${item.id}`, { state: { movies: { item } } });
+  };
+
   const { genreList } = useSelector((state) => state.movie);
   return (
     <div
+      onClick={goDetails}
       className="cards"
       style={{
         backgroundImage:
@@ -23,9 +31,9 @@ const MovieCard = ({ item }) => {
             </Badge>
           ))}
         </div>
-        <div>
+        <div className="movie-info">
           <span>{item.vote_average}</span>
-          <span>{item.adult ? "19+" : "0+"}</span>
+          <span>{item.adult ? "청소년 관람불가" : "청소년 관람가능"}</span>
         </div>
       </div>
     </div>

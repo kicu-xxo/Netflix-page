@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { useLocation, useParams } from "react-router-dom";
 
 const MovieDetail = () => {
-  return (
-    <div>MovieDetail</div>
-  )
-}
+  let { id } = useParams();
+  const location = useLocation();
+  const movies = location.state.movies.item;
+  console.log("movies???", movies);
 
-export default MovieDetail
+  return <h1>{movies.title}</h1>;
+};
+
+export default MovieDetail;
