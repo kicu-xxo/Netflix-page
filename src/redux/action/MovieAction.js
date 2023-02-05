@@ -1,7 +1,13 @@
-
+import { useSelector } from "react-redux";
 import api from "../api";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
+
+function getMovieId(id) {
+  return (dispatch, state) => {
+    dispatch({ type: "GET_MOVIE_ID", payload: { id } });
+  };
+}
 
 //TMDB에서 API 가져오는 함수
 function getMovies() {
@@ -24,6 +30,10 @@ function getMovies() {
         `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
       );
 
+      // const reviewApi = api.get(
+      //   `https://api.themoviedb.org/3/movie/movieId/reviews?api_key=${API_KEY}&language=en-US&page=1`
+      // );
+
       let [popularMovies, topRateMovies, upcomingMovies, genreList] =
         await Promise.all([popularMovieApi, topRateApi, upComingApi, genreApi]);
       console.log("genre? ", genreList);
@@ -45,4 +55,5 @@ function getMovies() {
 
 export const movieAction = {
   getMovies,
+  getMovieId,
 };

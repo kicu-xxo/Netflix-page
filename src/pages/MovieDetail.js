@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Badge } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
+import { movieAction } from "../redux/action/MovieAction";
 
 const MovieDetail = () => {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const [details, setDetails] = useState({});
   const { id } = useParams();
+  const dispatch = useDispatch();
   const genreList = useSelector((state) => state.movie.genreList);
   const location = useLocation();
   const movies = location.state.movies.item;
@@ -22,15 +24,20 @@ const MovieDetail = () => {
 
   useEffect(() => {
     getMovieDetails();
+    dispatch(movieAction.getMovieId(id));
   }, [id]);
 
   return (
     <div className="details-page">
+      {/* -- movie info section -- */}
       <div className="movie-info-section">
         <img
           src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movies.poster_path}`}
         ></img>
+
+        {/* - movie info container - */}
         <div className="movie-info-container">
+          {/* section 1  (badge, title, info) */}
           <div className="genre-badge-box">
             {movies.genre_ids.map((id) => (
               <Badge bg="danger" key={id} className="genre-badges">
@@ -44,10 +51,14 @@ const MovieDetail = () => {
             <span>👥{movies.popularity}</span>
             <span>{movies.adult ? "청소년 관람불가" : "청소년 관람가능"}</span>
           </div>
+
+          {/* section 2 (overview) */}
           <div className="movie-overview">{movies.overview}</div>
+
+          {/* section 3 (release, budget, runtime) */}
           <div className="details-info-box">
             <div className="details-info-item">
-              <Badge bg="danger">release</Badge>
+              <Badge bg="danger">Release</Badge>
               <span className="badges">{movies.release_date}</span>
             </div>
             <div>
@@ -55,7 +66,7 @@ const MovieDetail = () => {
               <span className="badges">{details.budget}</span>
             </div>
             <div>
-              <Badge bg="danger">runtime</Badge>
+              <Badge bg="danger">Runtime</Badge>
               <span className="badges">{details.runtime}</span>
             </div>
           </div>
@@ -63,6 +74,15 @@ const MovieDetail = () => {
             <img src="https://cdn-icons-png.flaticon.com/512/5344/5344733.png"></img>
             <span>Watch Trailer</span>
           </div>
+        </div>
+
+        {/* -- other content container -- */}
+        <div className="other-content-container">
+          <div>
+            <div>REVIEWS</div>
+            <div>RELATED MOVIES</div>
+          </div>
+          <div></div>
         </div>
       </div>
     </div>

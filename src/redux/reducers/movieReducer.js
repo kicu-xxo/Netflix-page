@@ -5,6 +5,7 @@ let initialState = {
   movieDetails: {},
   loading: true,
   genreList: [],
+  movieId: "",
 };
 
 function movieReducer(state = initialState, action) {
@@ -22,6 +23,8 @@ function movieReducer(state = initialState, action) {
         genreList: payload.genreList,
         loading: false,
       };
+    case "GET_MOVIE_ID":
+      return { ...state, movieId: payload.id };
     case "GET_MOVIES_FAILURE":
       return { ...state, loading: false };
     default:
