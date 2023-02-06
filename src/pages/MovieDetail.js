@@ -6,15 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { movieAction } from "../redux/action/MovieAction";
 import ClipLoader from "react-spinners/ClipLoader";
+import RecommendationsCard from "../components/RecommendationsCard";
 
 const MovieDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { movieDetails, movieReviews, loading2 } = useSelector(
+  const { movieDetails, movieReviews, recommendations, loading2 } = useSelector(
     (state) => state.movie
   );
-  // const reviewList = movieReviews.data;
-  // console.log("movies???", reviewList);
 
   useEffect(() => {
     dispatch(movieAction.getDetails(id));
@@ -82,14 +81,8 @@ const MovieDetail = () => {
           </div>
         </div>
       </div>
+
       {/* -- other content container -- */}
-      {/* <div className="other-content-container">
-        <div className="tap-box">
-          <div className="other-taps">REVIEWS</div>
-          <div className="other-taps">RELATED MOVIES</div>
-        </div>
-        <div className="other-content-box"></div>
-      </div> */}
       <div className="other-content-section">
         <Tabs
           defaultActiveKey="profile"
@@ -110,8 +103,22 @@ const MovieDetail = () => {
               ))}
             </div>
           </Tab>
-          <Tab eventKey="profile" title="RELATED MOVIES" className="tab">
-            <div className="content-box">추천 영화에요</div>
+          <Tab
+            eventKey="profile"
+            title={`RELATED MOVIES (${recommendations.data.results.length})`}
+            className="tab"
+          >
+            <div className="content-box">
+              <div className="recommendations-movies-box">
+                {recommendations.data.results.map((item) => (
+                  <img
+                    className="recommendations-movies"
+                    key={item.id}
+                    src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                  ></img>
+                ))}
+              </div>
+            </div>
           </Tab>
         </Tabs>
       </div>

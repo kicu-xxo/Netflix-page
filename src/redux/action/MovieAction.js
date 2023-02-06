@@ -45,19 +45,30 @@ function getMovies() {
 function getDetails(id) {
   return async (dispatch) => {
     try {
-      dispatch({ type: "GET_DETAILS_REQUEST"});
+      dispatch({ type: "GET_DETAILS_REQUEST" });
       const selectMovieReviewsApi = api.get(
         `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
       );
       const selectMovieDetailsApi = api.get(
         `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
       );
-      let [movieReviews, movieDetails] = await Promise.all([selectMovieReviewsApi, selectMovieDetailsApi]);
-      console.log("Review", movieDetails);
+      const recommendationsMoviesApi = api.get(
+        `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
+      );
+      let [movieReviews, movieDetails, recommendations] = await Promise.all([
+        selectMovieReviewsApi,
+        selectMovieDetailsApi,
+        recommendationsMoviesApi,
+      ]);
+      console.log("Review", recommendations);
 
       dispatch({
         type: "GET_DETAILS_SUCCESS",
-        payload: { movieReviews: movieReviews, movieDetails: movieDetails },
+        payload: {
+          movieReviews: movieReviews,
+          movieDetails: movieDetails,
+          recommendations: recommendations,
+        },
       });
     } catch (error) {
       dispatch({ type: "GET_DETAILS_FAILURE" });

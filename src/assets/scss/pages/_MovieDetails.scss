@@ -99,7 +99,7 @@
   // }
 
   .other-content-section {
-    margin-top: 60px;
+    margin-top: 100px;
 
     li {
       --bs-nav-link-color: red;
@@ -112,10 +112,7 @@
       border: 1px solid lightgray;
       overflow: scroll;
 
-      &::-webkit-scrollbar-thumb {
-        background-color: #fff;
-      }
-
+      // review content box
       .review-box {
         display: flex;
         flex-direction: column;
@@ -126,6 +123,19 @@
         .user-id {
           margin-bottom: 5px;
           font-size: 25px;
+        }
+      }
+
+      // recommendations content box
+      .recommendations-movies-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 40px;
+        width: 100%;
+
+        .recommendations-movies {
+          padding: 10px 20px;
+          width: 100%;
         }
       }
     }
