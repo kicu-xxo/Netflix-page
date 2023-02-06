@@ -9,7 +9,7 @@ function Navigation() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">
+        <Navbar.Brand href="/">
           <img
             width="100"
             src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-logo-red-black-png.png"

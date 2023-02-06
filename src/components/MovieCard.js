@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Badge } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { movieAction } from "../redux/action/MovieAction";
 
 const MovieCard = ({ item }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const goDetails = () => {
-    navigate(`/Movies/${item.id}`, { state: { movies: { item } } });
+    navigate(`/Movies/${item.id}`);
   };
 
   const { genreList } = useSelector((state) => state.movie);

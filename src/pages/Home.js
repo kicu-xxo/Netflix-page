@@ -19,7 +19,7 @@ const Home = () => {
   if (loading) {
     return (
       <ClipLoader
-        color="#0000"
+        color="#ffff"
         loading={loading}
         size={150}
         aria-label="Loading Spinner"

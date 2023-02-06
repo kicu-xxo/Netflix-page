@@ -157,3 +157,30 @@ html body {
   height: 20px;
   margin-right: 5px;
 }
+.details-page .other-content-section {
+  margin-top: 60px;
+}
+.details-page .other-content-section li {
+  --bs-nav-link-color: red;
+  --bs-nav-link-hover-color: #cc0000;
+}
+.details-page .other-content-section .content-box {
+  padding: 25px 35px;
+  height: 500px;
+  border: 1px solid lightgray;
+  overflow: scroll;
+}
+.details-page .other-content-section .content-box::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}
+.details-page .other-content-section .content-box .review-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+.details-page .other-content-section .content-box .review-box .user-id {
+  margin-bottom: 5px;
+  font-size: 25px;
+}
