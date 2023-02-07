@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { movieAction } from "../redux/action/MovieAction";
 import ClipLoader from "react-spinners/ClipLoader";
-import RecommendationsCard from "../components/RecommendationsCard";
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -110,13 +109,15 @@ const MovieDetail = () => {
           >
             <div className="content-box">
               <div className="recommendations-movies-box">
-                {recommendations.data.results.map((item) => (
-                  <img
-                    className="recommendations-movies"
-                    key={item.id}
-                    src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                  ></img>
-                ))}
+                {recommendations.data.results
+                  .filter((item) => item.poster_path)
+                  .map((item) => (
+                    <img
+                      className="recommendations-movies"
+                      key={item.id}
+                      src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                    ></img>
+                  ))}
               </div>
             </div>
           </Tab>
