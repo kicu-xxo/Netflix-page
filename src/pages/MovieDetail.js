@@ -1,18 +1,39 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Badge } from "react-bootstrap";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { movieAction } from "../redux/action/MovieAction";
 import ClipLoader from "react-spinners/ClipLoader";
+import Trailer from "../components/Trailer";
 
 const MovieDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const [modalShow, setModalShow] = React.useState(false);
   const { movieDetails, movieReviews, recommendations, loading2 } = useSelector(
     (state) => state.movie
   );
+
+  // -- bootstrap import modal --
+  function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>
+          <Trailer />
+        </Modal.Body>
+      </Modal>
+    );
+  }
 
   useEffect(() => {
     dispatch(movieAction.getDetails(id));
@@ -75,8 +96,15 @@ const MovieDetail = () => {
             </div>
           </div>
           <div className="trailer">
-            <img src="https://cdn-icons-png.flaticon.com/512/5344/5344733.png"></img>
-            <span>Watch Trailer</span>
+            <Button variant="dark" onClick={() => setModalShow(true)}>
+              <img src="https://cdn-icons-png.flaticon.com/512/5344/5344733.png"></img>
+              Watch Trailer
+            </Button>
+
+            <MyVerticallyCenteredModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+            />
           </div>
         </div>
       </div>

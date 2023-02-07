@@ -64,12 +64,6 @@
       }
 
       .trailer {
-        display: flex;
-        align-items: center;
-        padding: 30px 0;
-        color: red;
-        cursor: pointer;
-
         img {
           width: 20px;
           height: 20px;
@@ -78,25 +72,6 @@
       }
     }
   }
-
-  // .other-content-container {
-  //   .tap-box {
-  //     display: flex;
-  //     width: 100%;
-  //     margin: 60px 0 20px;
-
-  //     .other-taps {
-  //       margin-right: 15px;
-  //       padding: 10px 15px;
-  //       border: 1px solid lightgray;
-  //     }
-  //   }
-
-  //   .other-content-box {
-  //     height: 500px;
-  //     border: 1px solid lightgray;
-  //   }
-  // }
 
   .other-content-section {
     margin-top: 100px;

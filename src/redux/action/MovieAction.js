@@ -55,12 +55,17 @@ function getDetails(id) {
       const recommendationsMoviesApi = api.get(
         `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
       );
-      let [movieReviews, movieDetails, recommendations] = await Promise.all([
-        selectMovieReviewsApi,
-        selectMovieDetailsApi,
-        recommendationsMoviesApi,
-      ]);
-      console.log("Review", recommendations);
+      const movieIdsApi = api.get(
+        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`
+      );
+      let [movieReviews, movieDetails, recommendations, movieIds] =
+        await Promise.all([
+          selectMovieReviewsApi,
+          selectMovieDetailsApi,
+          recommendationsMoviesApi,
+          movieIdsApi,
+        ]);
+      console.log("Review", movieIds);
 
       dispatch({
         type: "GET_DETAILS_SUCCESS",
@@ -68,6 +73,7 @@ function getDetails(id) {
           movieReviews: movieReviews,
           movieDetails: movieDetails,
           recommendations: recommendations,
+          movieIds: movieIds,
         },
       });
     } catch (error) {
