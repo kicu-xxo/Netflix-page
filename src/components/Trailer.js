@@ -13,13 +13,13 @@ class Trailer extends React.Component {
       },
     };
     const { movieIds } = this.props;
-    console.log("movieId??", movieIds);
+    // console.log("movieId??", movieIds);
 
     // 여러 개의 official video중에 Official Trailer영상 객체 따로 담는 함수
     const trailerId = movieIds.data.results.filter(
       (item) => item.name == "Official Trailer"
     );
-    console.log("trailerId??", trailerId);
+    // console.log("trailerId??", trailerId);
 
     if (trailerId[0]) {
       return (

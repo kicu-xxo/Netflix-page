@@ -11,7 +11,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Trailer from "../components/Trailer";
 
 const MovieDetail = () => {
-  const { id } = useParams();
+  let { id } = useParams();
   const dispatch = useDispatch();
   const [modalShow, setModalShow] = React.useState(false);
   const { movieDetails, movieReviews, recommendations, loading2 } = useSelector(
@@ -41,13 +41,15 @@ const MovieDetail = () => {
 
   if (loading2) {
     return (
-      <ClipLoader
-        color="#ffff"
-        loading={loading2}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+      <div className="loading-spinner">
+        <ClipLoader
+          color="#ffff"
+          loading={loading2}
+          size={150}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
     );
   }
   return (

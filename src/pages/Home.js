@@ -18,13 +18,15 @@ const Home = () => {
 
   if (loading) {
     return (
-      <ClipLoader
-        color="#ffff"
-        loading={loading}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+      <div className="loading-spinner">
+        <ClipLoader
+          color="#ffff"
+          loading={loading}
+          size={150}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
     );
   }
   return (
