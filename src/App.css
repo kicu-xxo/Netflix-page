@@ -9,8 +9,6 @@ html body .loading-spinner {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 90vh;
 }
 
 .banner {
@@ -161,6 +159,9 @@ html body .loading-spinner {
 }
 .details-page .movie-info-section .movie-info-container .details-info-box .badges {
   margin-left: 10px;
+}
+.details-page .movie-info-section .movie-info-container .trailer {
+  margin-top: 30px;
 }
 .details-page .movie-info-section .movie-info-container .trailer img {
   width: 20px;
