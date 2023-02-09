@@ -118,3 +118,75 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .details-page {
+    margin: 5% 7%;
+
+    .movie-info-section {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        margin-bottom: 15px;
+      }
+
+      .movie-info-container {
+        h1 {
+          margin: 5px 0;
+          font-size: 25px;
+        }
+
+        .movie-info-items {
+          padding-bottom: 10px;
+          font-size: 15px;
+        }
+
+        .movie-overview {
+          padding: 15px 0;
+          font-size: 15px;
+        }
+
+        .details-info-box {
+          padding: 15px 0;
+        }
+
+        .trailer {
+          display: none;
+        }
+      }
+    }
+
+    .other-content-section {
+      margin: 20px 0 50px;
+
+      .mb-3 {
+        font-size: 12px;
+      }
+
+      .content-box {
+        height: 300px;
+        padding: 10px 15px;
+
+        .review-box {
+          font-size: 12px;
+
+          .user-id {
+            font-size: 18px;
+          }
+        }
+
+        .recommendations-movies-box {
+          grid-template-columns: 1fr 1fr;
+          padding: 10px;
+          width: 100%;
+
+          .recommendations-movies {
+            padding: 10px 15px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

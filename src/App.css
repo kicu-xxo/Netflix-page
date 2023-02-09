@@ -16,7 +16,6 @@ html body .loading-spinner {
   align-items: center;
   height: 600px;
 }
-
 .banner::before {
   position: absolute;
   left: 0;
@@ -25,14 +24,31 @@ html body .loading-spinner {
   content: "";
   background: linear-gradient(to right, black, transparent);
 }
-
-.banner-info {
+.banner .banner-info {
   width: 40%;
   margin-left: 30px;
   color: white;
   z-index: 1;
 }
 
+@media screen and (max-width: 480px) {
+  .banner {
+    background-size: cover;
+    height: 250px;
+  }
+  .banner::before {
+    height: 250px;
+  }
+  .banner .banner-info {
+    width: 60%;
+  }
+  .banner .banner-info h1 {
+    font-size: 20px;
+  }
+  .banner .banner-info p {
+    display: none;
+  }
+}
 .cards {
   width: 300px;
   height: 200px;
@@ -201,4 +217,60 @@ html body .loading-spinner {
 .details-page .other-content-section .content-box .recommendations-movies-box .recommendations-movies {
   padding: 10px 20px;
   width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .details-page {
+    margin: 5% 7%;
+  }
+  .details-page .movie-info-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .details-page .movie-info-section img {
+    margin-bottom: 15px;
+  }
+  .details-page .movie-info-section .movie-info-container h1 {
+    margin: 5px 0;
+    font-size: 25px;
+  }
+  .details-page .movie-info-section .movie-info-container .movie-info-items {
+    padding-bottom: 10px;
+    font-size: 15px;
+  }
+  .details-page .movie-info-section .movie-info-container .movie-overview {
+    padding: 15px 0;
+    font-size: 15px;
+  }
+  .details-page .movie-info-section .movie-info-container .details-info-box {
+    padding: 15px 0;
+  }
+  .details-page .movie-info-section .movie-info-container .trailer {
+    display: none;
+  }
+  .details-page .other-content-section {
+    margin: 20px 0 50px;
+  }
+  .details-page .other-content-section .mb-3 {
+    font-size: 12px;
+  }
+  .details-page .other-content-section .content-box {
+    height: 300px;
+    padding: 10px 15px;
+  }
+  .details-page .other-content-section .content-box .review-box {
+    font-size: 12px;
+  }
+  .details-page .other-content-section .content-box .review-box .user-id {
+    font-size: 18px;
+  }
+  .details-page .other-content-section .content-box .recommendations-movies-box {
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    width: 100%;
+  }
+  .details-page .other-content-section .content-box .recommendations-movies-box .recommendations-movies {
+    padding: 10px 15px;
+    width: 100%;
+  }
 }
