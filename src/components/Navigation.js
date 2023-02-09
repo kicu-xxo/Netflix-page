@@ -22,12 +22,12 @@ function Navigation() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <a href="/" className="nav-item">
+            <Link to={"/"} className="nav-item">
               Home
-            </a>
-            <a href="/movies" className="nav-item">
+            </Link>
+            <Link to={"/movies"} className="nav-item">
               Movies
-            </a>
+            </Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
