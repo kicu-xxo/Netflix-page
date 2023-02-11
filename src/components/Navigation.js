@@ -3,9 +3,23 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { movieAction } from "../redux/action/MovieAction";
 
 function Navigation() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const search = (event) => {
+    event.preventDefault();
+    let searchKeyword = event.target[0].value;
+    // console.log("event?", searchKeyword);
+    dispatch(movieAction.getSearch(searchKeyword));
+    navigate("/movies");
+    searchKeyword = "";
+  };
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container fluid>
@@ -29,14 +43,16 @@ function Navigation() {
               Movies
             </Link>
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={search}>
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-danger">Search</Button>
+            <Button type="submit" variant="outline-danger">
+              Search
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>

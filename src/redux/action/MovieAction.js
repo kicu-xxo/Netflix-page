@@ -82,15 +82,28 @@ function getDetails(id) {
   };
 }
 
-function getMoviesPage() {
-  return (dispatch) => {
-    dispatch({ type: "GET_MOVIES_PAGE_REQUEST" });
-    dispatch({ type: "GET_MOVIES_PAGE_SUCCESS" });
+function getSearch(searchKeyword) {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: "GET_SEARCH_REQUEST" });
+      const getSearchApi = await api.get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchKeyword}`
+      );
+
+      let [searchContents] = [getSearchApi];
+      // console.log("search?", searchContents);
+      dispatch({
+        type: "GET_SEARCH_SUCCESS",
+        payload: { searchContents: searchContents },
+      });
+    } catch (error) {
+      dispatch({ type: "GET_SEARCH_FAILURE" });
+    }
   };
 }
 
 export const movieAction = {
   getMovies,
   getDetails,
-  getMoviesPage,
+  getSearch,
 };
