@@ -1,0 +1,19 @@
+.movies-page {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+
+  .select-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+    width: 250px;
+  }
+
+  .movies-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+}

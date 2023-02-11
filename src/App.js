@@ -1,5 +1,5 @@
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
@@ -15,10 +15,10 @@ import Navigation from "./components/Navigation";
 //          섹션은 슬라이드로 넘기며 다른 영화들을 볼 수 있음 O
 
 // 3. -- 영화 디테일 페이지 --
-//      -선택한 영화의 정보를 보여줌 (포스터, 제목, 줄거리, 평점, 인기도, 시청가능 나이, 예산, 이익, 러닝타임 등등)
-//      -버튼을 누르면 예고편 시청 가능 (유튜브)
-//      -해당 영화의 리뷰
-//      -해당 영화와 관련된 추천 영화
+//      -선택한 영화의 정보를 보여줌 (포스터, 제목, 줄거리, 평점, 인기도, 시청가능 나이, 예산, 이익, 러닝타임 등등) O
+//      -버튼을 누르면 예고편 시청 가능 (유튜브) O
+//      -해당 영화의 리뷰 O
+//      -해당 영화와 관련된 추천 영화 O
 
 // 4. -- 영화 검색 가능 --
 //      -검색된 영화 다양한 기준으로 정렬 가능

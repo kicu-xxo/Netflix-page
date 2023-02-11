@@ -82,7 +82,15 @@ function getDetails(id) {
   };
 }
 
+function getMoviesPage() {
+  return (dispatch) => {
+    dispatch({ type: "GET_MOVIES_PAGE_REQUEST" });
+    dispatch({ type: "GET_MOVIES_PAGE_SUCCESS" });
+  };
+}
+
 export const movieAction = {
   getMovies,
   getDetails,
+  getMoviesPage,
 };

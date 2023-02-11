@@ -1,0 +1,81 @@
+.movies-page-cards {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  background-size: cover;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: linear-gradient(to right, black 30%, transparent);
+  }
+
+  .movie-info-container {
+    position: relative;
+    padding: 15px;
+    z-index: 1;
+
+    .title-box {
+      display: flex;
+
+      img {
+        width: 70px;
+        height: 100px;
+        z-index: 1;
+        margin-right: 15px;
+      }
+
+      h1 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-bottom: 3px; //영어 아랫부분 잘림 방지 (y, p, g)
+        font-size: 25px;
+      }
+
+      p {
+        margin-top: 5px;
+        font-size: 13px;
+      }
+    }
+
+    .badges {
+      padding: 5px 0;
+
+      span {
+        margin-right: 5px;
+        font-size: 10px;
+      }
+    }
+
+    .overview {
+      display: -webkit-box;
+      -webkit-line-clamp: 7;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 10px;
+      width: 60%;
+      font-size: 10px;
+    }
+
+    .other-info-box {
+      margin-top: 10px;
+      font-size: 13px;
+
+      span {
+        margin-right: 5px;
+
+        &:last-child {
+          color: red;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

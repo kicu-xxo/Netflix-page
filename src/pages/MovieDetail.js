@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import { movieAction } from "../redux/action/MovieAction";
 import ClipLoader from "react-spinners/ClipLoader";
 import Trailer from "../components/Trailer";
+import RecommendationsCard from "../components/RecommendationsCard";
 
 const MovieDetail = () => {
   let { id } = useParams();
@@ -58,7 +59,7 @@ const MovieDetail = () => {
       {/* -- movie info section -- */}
       <div className="movie-info-section">
         <img
-          src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movieDetails.data.poster_path}`}
+          src={`https://www.themoviedb.org/t/p/w780${movieDetails.data.poster_path}`}
         ></img>
 
         {/* - movie info container - */}
@@ -139,17 +140,13 @@ const MovieDetail = () => {
             className="tab"
           >
             <div className="content-box">
-              <div className="recommendations-movies-box">
+              <ul className="recommendations-movies-box">
                 {recommendations.data.results
                   .filter((item) => item.poster_path)
                   .map((item) => (
-                    <img
-                      className="recommendations-movies"
-                      key={item.id}
-                      src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-                    ></img>
+                    <RecommendationsCard item={item} key={item.id} />
                   ))}
-              </div>
+              </ul>
             </div>
           </Tab>
         </Tabs>

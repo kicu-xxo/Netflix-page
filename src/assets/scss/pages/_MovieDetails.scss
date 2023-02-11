@@ -107,6 +107,7 @@
       .recommendations-movies-box {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px 20px;
         padding: 40px;
         width: 100%;
 
@@ -119,7 +120,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 760px) {
   .details-page {
     margin: 5% 7%;
 
@@ -178,13 +179,9 @@
 
         .recommendations-movies-box {
           grid-template-columns: 1fr 1fr;
+          gap: 10px;
           padding: 10px;
           width: 100%;
-
-          .recommendations-movies {
-            padding: 10px 15px;
-            width: 100%;
-          }
         }
       }
     }

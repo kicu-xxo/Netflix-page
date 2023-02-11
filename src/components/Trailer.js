@@ -30,7 +30,7 @@ class Trailer extends React.Component {
         />
       );
     } else
-      return <div className="notFoundMassage">Trailer Video Not Found.</div>;
+      return <div className="not-found-massage">Trailer Video Not Found.</div>;
   }
 
   _onReady(event) {

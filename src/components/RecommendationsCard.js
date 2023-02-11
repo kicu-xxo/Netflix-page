@@ -1,16 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const RecommendationsCard = () => {
-  const { recommendations } = useSelector((state) => state.movie);
-  console.log("recommendations?", recommendations.data.results);
+const RecommendationsCard = ({ item }) => {
   //   const movieList = recommendations.data.results;
+  const navigate = useNavigate();
+
   return (
-    <div>
+    <li className="recommendations-items">
       <img
-        src={`https://image.tmdb.org/t/p/w500/${recommendations.data.results.backdrop_path}`}
+        className="recommendations-movies-img"
+        key={item.id}
+        src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
       ></img>
-    </div>
+    </li>
   );
 };
 

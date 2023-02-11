@@ -5,10 +5,19 @@ html {
     color: white;
     background-color: black;
 
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
     .loading-spinner {
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    li {
+      list-style: none;
     }
   }
 }

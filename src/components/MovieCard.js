@@ -11,6 +11,7 @@ const MovieCard = ({ item }) => {
   };
 
   const { genreList } = useSelector((state) => state.movie);
+
   return (
     <div
       onClick={goDetails}
