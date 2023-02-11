@@ -157,6 +157,10 @@ html body li {
   color: red;
   font-weight: bold;
 }
+.movies-page-cards .movie-info-container .page-btns div {
+  display: flex;
+  justify-content: center;
+}
 
 .movie-slide {
   margin: 10px 10%;
@@ -167,6 +171,12 @@ html body li {
 }
 .react-multi-carousel-list .react-multi-carousel-track .react-multi-carousel-item {
   margin: 15px 0;
+}
+
+.page-btn {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
 }
 
 .nav-item {
