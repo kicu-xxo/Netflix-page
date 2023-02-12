@@ -3,6 +3,8 @@ import api from "../api";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 //TMDB에서 API 가져오는 함수
+//웹이 실행됨과 동시에 실행됨 (Home.js에서 실행)
+//인기, 높은 평점, 상영 예정 영화 리스트와 장르 리스트 불러옴
 function getMovies() {
   return async (dispatch) => {
     try {
@@ -42,6 +44,9 @@ function getMovies() {
   };
 }
 
+//TMDB에서 API 가져오는 함수
+//영화의 디테일 페이지로 들어가면 실행됨 (MovieDetail.js에서 실행됨)
+//리뷰, 상세 정보, 추천 영화 리스트, 트레일러 영상에 필요한 ID를 불러옴
 function getDetails(id) {
   return async (dispatch) => {
     try {
@@ -82,22 +87,33 @@ function getDetails(id) {
   };
 }
 
+//TMDB에서 API 가져오는 함수
+//검색어를 입력 시 실행됨 (Navigation.js에서 실행됨)
+//검색어가 포함된 영화 리스트를 불러옴
 function getSearch(searchKeyword) {
   return async (dispatch) => {
-    try {
       dispatch({ type: "GET_SEARCH_REQUEST" });
       const getSearchApi = await api.get(
         `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchKeyword}`
       );
 
       let [searchContents] = [getSearchApi];
-      // console.log("search?", searchContents);
+      console.log("search?", searchContents);
+      console.log("search?", searchKeyword);
       dispatch({
         type: "GET_SEARCH_SUCCESS",
         payload: { searchContents: searchContents },
       });
+  };
+}
+
+function getSort(movieList) {
+  return (dispatch) => {
+    try {
+      dispatch({ type: "GET_SORT_REQUEST" });
+      dispatch({ type: "GET_SORT_SUCCESS", payload: { movieList: movieList } });
     } catch (error) {
-      dispatch({ type: "GET_SEARCH_FAILURE" });
+      dispatch({ type: "GET_SORT_FAILURE" });
     }
   };
 }
@@ -106,4 +122,5 @@ export const movieAction = {
   getMovies,
   getDetails,
   getSearch,
+  getSort,
 };

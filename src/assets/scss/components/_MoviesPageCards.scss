@@ -3,6 +3,7 @@
   width: 250px;
   height: 350px;
   background-size: cover;
+  cursor: pointer;
 
   &::before {
     position: absolute;
@@ -66,7 +67,7 @@
 
     .other-info-box {
       margin-top: 10px;
-      font-size: 13px;
+      font-size: 12px;
 
       span {
         margin-right: 5px;
@@ -79,7 +80,6 @@
     }
 
     .page-btns {
-      
       div {
         display: flex;
         justify-content: center;

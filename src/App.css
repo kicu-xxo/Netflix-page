@@ -93,6 +93,7 @@ html body li {
   width: 250px;
   height: 350px;
   background-size: cover;
+  cursor: pointer;
 }
 .movies-page-cards::before {
   position: absolute;
@@ -148,7 +149,7 @@ html body li {
 }
 .movies-page-cards .movie-info-container .other-info-box {
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 12px;
 }
 .movies-page-cards .movie-info-container .other-info-box span {
   margin-right: 5px;

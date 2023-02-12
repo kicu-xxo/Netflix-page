@@ -4,9 +4,13 @@ import { useNavigate } from "react-router-dom";
 const RecommendationsCard = ({ item }) => {
   //   const movieList = recommendations.data.results;
   const navigate = useNavigate();
+  const goDetails = () => {
+    navigate(`/Movies/${item.id}`);
+    window.location.reload();
+  };
 
   return (
-    <li className="recommendations-items">
+    <li className="recommendations-items" onClick={goDetails}>
       <img
         className="recommendations-movies-img"
         key={item.id}

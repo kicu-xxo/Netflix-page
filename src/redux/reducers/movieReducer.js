@@ -10,7 +10,7 @@ let initialState = {
   movieDetails: {},
   recommendations: {},
   movieIds: {},
-  searchList: {},
+  moviesList: {},
 };
 
 function movieReducer(state = initialState, action) {
@@ -26,12 +26,13 @@ function movieReducer(state = initialState, action) {
         upcomingMovies: payload.upcomingMovies,
         movieDetails: payload.movieDetails,
         genreList: payload.genreList,
-        searchList: payload.popularMovies,
+        moviesList: payload.popularMovies.results,
         loading: false,
         loading2: true,
       };
     case "GET_MOVIES_FAILURE":
       return { ...state, loading: false };
+
     case "GET_DETAILS_REQUEST":
       return { ...state, loading2: true };
     case "GET_DETAILS_SUCCESS":
@@ -45,15 +46,31 @@ function movieReducer(state = initialState, action) {
       };
     case "GET_DETAILS_FAILURE":
       return { ...state, loading2: false };
+
     case "GET_SEARCH_REQUEST":
       return { ...state, loading3: true };
     case "GET_SEARCH_SUCCESS":
       return {
         ...state,
-        searchList: payload.searchContents.data,
+        moviesList: payload.searchContents.data.results,
         loading3: false,
       };
     case "GET_SEARCH_FAILURE":
+      return { ...state, loading3: false };
+
+    case "GET_SORT_REQUEST":
+      return { ...state, loading3: true };
+    case "GET_SORT_SUCCESS":
+      return {
+        ...state,
+        loading3: true,
+        moviesList: payload.movieList,
+        loading3: false,
+      };
+    case "GET_SORT_FAILURE":
+      return { ...state, loading3: false };
+
+    case "MOVIES_LENDER":
       return { ...state, loading3: false };
 
     default:
