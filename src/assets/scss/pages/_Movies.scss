@@ -9,6 +9,28 @@
     flex-direction: column;
     margin-right: 50px;
     width: 250px;
+
+    .filter-range {
+      margin: 20px 0;
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      .input-range {
+        width: 90%;
+        left: 15px;
+      }
+
+      .input-range__track--active {
+        background-color: red;
+      }
+
+      .input-range__slider {
+        background-color: red;
+        border: 1px solid red;
+      }
+    }
   }
 
   .movies-container {

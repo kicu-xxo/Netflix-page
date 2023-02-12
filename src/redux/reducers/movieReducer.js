@@ -11,6 +11,7 @@ let initialState = {
   recommendations: {},
   movieIds: {},
   moviesList: {},
+  date: {},
 };
 
 function movieReducer(state = initialState, action) {
@@ -72,6 +73,8 @@ function movieReducer(state = initialState, action) {
 
     case "MOVIES_LENDER":
       return { ...state, loading3: false };
+    case "GET_DATE":
+      return { ...state, date: payload.date };
 
     default:
       return { ...state };

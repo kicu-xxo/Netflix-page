@@ -378,6 +378,23 @@ html body li {
   margin-right: 50px;
   width: 250px;
 }
+.movies-page .select-container .filter-range {
+  margin: 20px 0;
+}
+.movies-page .select-container .filter-range p {
+  margin-bottom: 20px;
+}
+.movies-page .select-container .filter-range .input-range {
+  width: 90%;
+  left: 15px;
+}
+.movies-page .select-container .filter-range .input-range__track--active {
+  background-color: red;
+}
+.movies-page .select-container .filter-range .input-range__slider {
+  background-color: red;
+  border: 1px solid red;
+}
 .movies-page .movies-container {
   display: grid;
   grid-template-columns: 1fr 1fr;

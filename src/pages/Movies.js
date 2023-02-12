@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { ClipLoader } from "react-spinners";
 import MoviePageCards from "../components/MoviesPageCards";
 import Pagination from "../components/Pagination";
+import Range from "../components/Range";
 import { movieAction } from "../redux/action/MovieAction";
 
 const Movies = () => {
-  const { popularMovies, moviesList, loading3 } = useSelector(
+  const { popularMovies, moviesList, loading3, date } = useSelector(
     (state) => state.movie
   );
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const Movies = () => {
 
   let movieList = moviesList;
   console.log("searchList?", movieList);
+  console.log("date???", date);
 
   useEffect(() => {
     dispatch({ type: "MOVIES_LENDER" });
@@ -56,19 +58,22 @@ const Movies = () => {
     <div>
       <div className="movies-page">
         <div className="select-container">
-          <DropdownButton
-            id="dropdown-basic-button"
-            title="Sort"
-            variant="danger"
-            menuVariant="dark"
-            onSelect={(eventKey) => sorting(eventKey)}
-          >
-            <Dropdown.Item eventKey="desc">Popularity(desc)</Dropdown.Item>
-            <Dropdown.Item eventKey="asc">Popularity(asc)</Dropdown.Item>
-          </DropdownButton>
-          {/* <select>
-            <option>옵션 2</option>
-          </select> */}
+          <div className="sort-dropdown">
+            <DropdownButton
+              id="dropdown-basic-button"
+              title="Sort"
+              variant="danger"
+              menuVariant="dark"
+              onSelect={(eventKey) => sorting(eventKey)}
+            >
+              <Dropdown.Item eventKey="desc">Popularity(desc)</Dropdown.Item>
+              <Dropdown.Item eventKey="asc">Popularity(asc)</Dropdown.Item>
+            </DropdownButton>
+          </div>
+          <div className="filter-range">
+            <p>Year Filter</p>
+            <Range />
+          </div>
         </div>
         <ul className="movies-container">
           {moviesList.slice(offset, offset + limit).map((item) => (
