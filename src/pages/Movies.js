@@ -8,7 +8,7 @@ import Range from "../components/Range";
 import { movieAction } from "../redux/action/MovieAction";
 
 const Movies = () => {
-  const { popularMovies, moviesList, loading3, date } = useSelector(
+  const { genreList, moviesList, loading3, date } = useSelector(
     (state) => state.movie
   );
   const dispatch = useDispatch();
@@ -17,29 +17,55 @@ const Movies = () => {
   const [page, setPage] = useState(1); //현재 페이지 번호
   const offset = (page - 1) * limit; //페이지 당 첫 게시물 위치 계산
 
-  let movieList = moviesList;
-  console.log("searchList?", movieList);
-  console.log("date???", date);
+  const [renderList, setRenderList] = useState(moviesList); //화면에 보여줄 리스트
 
-  useEffect(() => {
-    dispatch({ type: "MOVIES_LENDER" });
-  }, []);
+  //개봉연도에 따라 영화 필터링하는 range input에 적용
+  const filtering = () => {
+    let filterMovie = moviesList.filter((item) => {
+      let release = Number(item.release_date.slice(0, 4));
+      return release >= date.min && date.max >= release;
+    });
+    setRenderList(filterMovie);
+    // console.log("testList?", filterMovie);
+  };
 
+  //인기순으로 정렬하는 dropDown에 적용
   const sorting = (eventKey) => {
-    console.log(eventKey);
+    let sort;
     if (eventKey === "desc") {
-      console.log("movieList?", movieList);
-      movieList = movieList.sort(function (a, b) {
+      // console.log("movieList?", moviesList);
+      sort = moviesList.sort(function (a, b) {
         return b.popularity - a.popularity;
       });
     } else if (eventKey === "asc") {
-      movieList = movieList.sort(function (a, b) {
+      sort = moviesList.sort(function (a, b) {
         return a.popularity - b.popularity;
       });
     }
-    // console.log("moviesList?", moviesList);
-    dispatch(movieAction.getSort(movieList));
+    setRenderList([...sort]);
   };
+
+  const genreFiltering = (eventKey) => {
+    console.log(eventKey);
+
+    let genres = moviesList.filter((item) => {
+      return item.genre_ids.includes(Number(eventKey));
+    });
+    setRenderList(genres);
+  };
+  // console.log(moviesList[0].genre_ids);
+
+  useEffect(() => {
+    filtering();
+  }, [date]);
+
+  useEffect(() => {
+    setRenderList(moviesList);
+  }, [moviesList]);
+
+  useEffect(() => {
+    dispatch(movieAction.getMovies());
+  }, []);
 
   if (loading3) {
     return (
@@ -70,23 +96,48 @@ const Movies = () => {
               <Dropdown.Item eventKey="asc">Popularity(asc)</Dropdown.Item>
             </DropdownButton>
           </div>
+          <div className="genre-filter-dropdown">
+            <DropdownButton
+              id="dropdown-basic-button"
+              title="Genre"
+              variant="danger"
+              menuVariant="dark"
+              onSelect={(eventKey) => genreFiltering(eventKey)}
+            >
+              {genreList.map((item) => (
+                <Dropdown.Item eventKey={item.id} key={item.id}>
+                  {item.name}
+                </Dropdown.Item>
+              ))}
+            </DropdownButton>
+          </div>
           <div className="filter-range">
             <p>Year Filter</p>
             <Range />
           </div>
         </div>
-        <ul className="movies-container">
-          {moviesList.slice(offset, offset + limit).map((item) => (
-            <MoviePageCards item={item} key={item.id} />
-          ))}
-        </ul>
+        <div>
+          <div className="movies-view">
+            {renderList == "" ? (
+              <div className="not-found-movies">
+                <div>Not Found Movies</div>
+              </div>
+            ) : (
+              <ul className="movies-container">
+                {renderList.slice(offset, offset + limit).map((item) => (
+                  <MoviePageCards item={item} key={item.id} />
+                ))}
+              </ul>
+            )}
+          </div>
+          <Pagination
+            total={renderList.length}
+            limit={limit}
+            page={page}
+            setPage={setPage}
+          />
+        </div>
       </div>
-      <Pagination
-        total={moviesList.length}
-        limit={limit}
-        page={page}
-        setPage={setPage}
-      />
     </div>
   );
 };

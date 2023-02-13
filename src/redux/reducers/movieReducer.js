@@ -4,7 +4,7 @@ let initialState = {
   upcomingMovies: {},
   loading: true,
   loading2: true,
-  loading3: false,
+  loading3: true,
   genreList: [],
   movieReviews: {},
   movieDetails: {},
@@ -17,8 +17,9 @@ let initialState = {
 function movieReducer(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {
+    //Home.js
     case "GET_MOVIES_REQUEST":
-      return { ...state, loading: true };
+      return { ...state, loading: true, loading3: true };
     case "GET_MOVIES_SUCCESS":
       return {
         ...state,
@@ -30,9 +31,10 @@ function movieReducer(state = initialState, action) {
         moviesList: payload.popularMovies.results,
         loading: false,
         loading2: true,
+        loading3: false,
       };
     case "GET_MOVIES_FAILURE":
-      return { ...state, loading: false };
+      return { ...state, loading: false, loading3: false };
 
     case "GET_DETAILS_REQUEST":
       return { ...state, loading2: true };
@@ -69,9 +71,6 @@ function movieReducer(state = initialState, action) {
         loading3: false,
       };
     case "GET_SORT_FAILURE":
-      return { ...state, loading3: false };
-
-    case "MOVIES_LENDER":
       return { ...state, loading3: false };
     case "GET_DATE":
       return { ...state, date: payload.date };

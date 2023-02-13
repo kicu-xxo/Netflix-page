@@ -4,6 +4,10 @@
   padding: 20px;
   width: 100%;
 
+  .genre-filter-dropdown {
+    margin-top: 20px;
+  }
+
   .select-container {
     display: flex;
     flex-direction: column;
@@ -37,5 +41,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+  }
+
+  .not-found-movies {
+    width: 515px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      font-size: 25px;
+    }
   }
 }

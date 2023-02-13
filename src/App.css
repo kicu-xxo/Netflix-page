@@ -372,6 +372,9 @@ html body li {
   padding: 20px;
   width: 100%;
 }
+.movies-page .genre-filter-dropdown {
+  margin-top: 20px;
+}
 .movies-page .select-container {
   display: flex;
   flex-direction: column;
@@ -399,4 +402,14 @@ html body li {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
+}
+.movies-page .not-found-movies {
+  width: 515px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.movies-page .not-found-movies div {
+  font-size: 25px;
 }
