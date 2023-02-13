@@ -8,7 +8,7 @@ const MoviesPageCards = ({ item }) => {
   const navigate = useNavigate();
   const { genreList } = useSelector((state) => state.movie);
   const goDetails = () => {
-    navigate(`/Movies/${item.id}`);
+    navigate(`/movies/${item.id}`);
   };
   return (
     <div
