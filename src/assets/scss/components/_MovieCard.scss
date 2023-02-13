@@ -36,3 +36,10 @@
     margin-right: 5px;
   }
 }
+
+@media screen and (max-width: 760px) {
+  .overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.3);
+  }
+}

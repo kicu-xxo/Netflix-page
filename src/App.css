@@ -88,6 +88,12 @@ html body li {
   margin-right: 5px;
 }
 
+@media screen and (max-width: 760px) {
+  .overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
 .movies-page-cards {
   position: relative;
   width: 250px;
@@ -174,6 +180,11 @@ html body li {
   margin: 15px 0;
 }
 
+@media screen and (max-width: 760px) {
+  .react-multi-carousel-list .react-multi-carousel-track {
+    margin: 0;
+  }
+}
 .page-btn {
   display: flex;
   justify-content: center;
@@ -412,4 +423,18 @@ html body li {
 }
 .movies-page .not-found-movies div {
   font-size: 25px;
+}
+
+@media screen and (max-width: 760px) {
+  .movies-page {
+    flex-direction: column;
+    align-items: center;
+  }
+  .movies-page .select-container {
+    margin: 0;
+    margin-bottom: 15px;
+  }
+  .movies-page .movies-container {
+    grid-template-columns: 1fr;
+  }
 }
