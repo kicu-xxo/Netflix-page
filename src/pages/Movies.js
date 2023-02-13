@@ -46,7 +46,7 @@ const Movies = () => {
   };
 
   const genreFiltering = (eventKey) => {
-    console.log(eventKey);
+    // console.log(eventKey);
 
     let genres = moviesList.filter((item) => {
       return item.genre_ids.includes(Number(eventKey));

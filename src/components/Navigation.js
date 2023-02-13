@@ -14,7 +14,7 @@ function Navigation() {
   const search = (event) => {
     event.preventDefault();
     let searchKeyword = event.target[0].value;
-    console.log("event?", searchKeyword);
+    // console.log("event?", searchKeyword);
     dispatch(movieAction.getSearch(searchKeyword));
     navigate("/movies");
     event.target[0].value = "";

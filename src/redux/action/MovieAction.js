@@ -70,7 +70,7 @@ function getDetails(id) {
           recommendationsMoviesApi,
           movieIdsApi,
         ]);
-      console.log("Review", movieIds);
+      // console.log("Review", movieIds);
 
       dispatch({
         type: "GET_DETAILS_SUCCESS",
@@ -98,8 +98,7 @@ function getSearch(searchKeyword) {
       );
 
       let [searchContents] = [getSearchApi];
-      console.log("search?", searchContents);
-      console.log("search?", searchKeyword);
+      // console.log("search?", searchContents);
       dispatch({
         type: "GET_SEARCH_SUCCESS",
         payload: { searchContents: searchContents },

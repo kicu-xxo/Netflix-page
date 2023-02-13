@@ -38,7 +38,6 @@ const MovieDetail = () => {
 
   useEffect(() => {
     dispatch(movieAction.getDetails(id));
-    console.log("retry details");
   }, []);
 
   if (loading2) {

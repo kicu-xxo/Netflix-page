@@ -7,7 +7,7 @@ const Range = () => {
   const dispatch = useDispatch();
 
   const getDate = (value) => {
-    console.log(value);
+    // console.log(value);
     dispatch({ type: "GET_DATE", payload: { date: value } });
   };
   return (
