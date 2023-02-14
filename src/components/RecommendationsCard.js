@@ -5,7 +5,7 @@ const RecommendationsCard = ({ item }) => {
   //   const movieList = recommendations.data.results;
   const navigate = useNavigate();
   const goDetails = () => {
-    navigate(`/Movies/${item.id}`);
+    navigate(`/movies/${item.id}`);
     window.location.reload();
   };
 
