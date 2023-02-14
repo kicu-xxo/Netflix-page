@@ -19,17 +19,19 @@ const Movies = () => {
 
   const [renderList, setRenderList] = useState(moviesList); //화면에 보여줄 리스트
 
-  //개봉연도에 따라 영화 필터링하는 range input에 적용
+  //개봉연도에 따라 영화 필터링하는 함수
   const filtering = () => {
-    let filterMovie = moviesList.filter((item) => {
-      let release = Number(item.release_date.slice(0, 4));
-      return release >= date.min && date.max >= release;
-    });
-    setRenderList(filterMovie);
+    if (Array.isArray(moviesList)) {
+      let filterMovie = moviesList.filter((item) => {
+        let release = Number(item.release_date.slice(0, 4));
+        return release >= date.min && date.max >= release;
+      });
+      setRenderList(filterMovie);
+    }
     // console.log("testList?", filterMovie);
   };
 
-  //인기순으로 정렬하는 dropDown에 적용
+  //인기순으로 정렬하는 하는 함수
   const sorting = (eventKey) => {
     let sort;
     if (eventKey === "desc") {
@@ -45,15 +47,14 @@ const Movies = () => {
     setRenderList([...sort]);
   };
 
+  //선택한 장르를 포함한 영화만 리스트에 남기는 함수
   const genreFiltering = (eventKey) => {
     // console.log(eventKey);
-
     let genres = moviesList.filter((item) => {
       return item.genre_ids.includes(Number(eventKey));
     });
     setRenderList(genres);
   };
-  // console.log(moviesList[0].genre_ids);
 
   useEffect(() => {
     filtering();
@@ -124,9 +125,12 @@ const Movies = () => {
               </div>
             ) : (
               <ul className="movies-container">
-                {renderList.slice(offset, offset + limit).map((item) => (
-                  <MoviePageCards item={item} key={item.id} />
-                ))}
+                {Array.isArray(renderList) &&
+                  renderList
+                    .slice(offset, offset + limit)
+                    .map((item) => (
+                      <MoviePageCards item={item} key={item.id} />
+                    ))}
               </ul>
             )}
           </div>
