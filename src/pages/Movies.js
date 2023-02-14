@@ -64,10 +64,6 @@ const Movies = () => {
     setRenderList(moviesList);
   }, [moviesList]);
 
-  useEffect(() => {
-    dispatch(movieAction.getMovies());
-  }, []);
-
   if (loading3) {
     return (
       <div className="loading-spinner">

@@ -4,7 +4,7 @@ let initialState = {
   upcomingMovies: {},
   loading: true,
   loading2: true,
-  loading3: true,
+  loading3: false,
   genreList: [],
   movieReviews: {},
   movieDetails: {},
