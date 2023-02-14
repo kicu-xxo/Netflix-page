@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { movieAction } from "../redux/action/MovieAction";
 
+// 모든 페이지 상단에 보여지는 Navigation Bar.
 function Navigation() {
   const dispatch = useDispatch();
   const navigate = useNavigate();

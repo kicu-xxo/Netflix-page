@@ -22,8 +22,8 @@ import Navigation from "./components/Navigation";
 //      -해당 영화와 관련된 추천 영화 O
 
 // 4. -- 영화 검색 가능 --
-//      -검색된 영화 다양한 기준으로 정렬 가능
-//      -검색된 영화 필터링 가능
+//      -검색된 영화 인기순 정렬 가능 O
+//      -검색된 영화 개봉 연도, 장르 필터링 가능 O
 
 function App() {
   return (

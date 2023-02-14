@@ -3,6 +3,7 @@ import { Badge } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+//MovieSlide 컴포넌트에 들어가는 영화 카드 컴포넌트
 const MovieCard = ({ item }) => {
   const navigate = useNavigate();
 

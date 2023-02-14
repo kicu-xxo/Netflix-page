@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
+// Movies 페이지 영화 카드들을 limit만큼 잘라서 보여주는 페이지네이션 함수.
 const Pagination = ({ total, limit, page, setPage }) => {
   const numPages = Math.ceil(total / limit);
 

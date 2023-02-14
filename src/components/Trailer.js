@@ -2,6 +2,7 @@ import React from "react";
 import YouTube from "react-youtube";
 import { connect } from "react-redux";
 
+// MovieDetail 페이지 트레일러 영상 모달 내부 컴포넌트.
 class Trailer extends React.Component {
   render() {
     const opts = {

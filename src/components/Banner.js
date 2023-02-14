@@ -1,5 +1,7 @@
 import React from "react";
 
+// 홈 페이지에 보여지는 배너 컴포넌트.
+// 현재 가장 인기있는 영화 포스터 1개를 보여줌
 const Banner = ({ movie }) => {
   // console.log({ movie });
   return (

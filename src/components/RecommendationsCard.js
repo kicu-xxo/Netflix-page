@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+// MovieDetail 페이지 하단 부분에 보여지는 추천 영화 카드 컴포넌트.
 const RecommendationsCard = ({ item }) => {
-  //   const movieList = recommendations.data.results;
   const navigate = useNavigate();
   const goDetails = () => {
     navigate(`/movies/${item.id}`);

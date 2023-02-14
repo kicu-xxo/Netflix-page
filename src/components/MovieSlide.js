@@ -3,6 +3,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import MovieCard from "./MovieCard";
 
+// 홈 페이지의 영화 리스트 슬라이더 컴포넌트.
+// npm download : https://www.npmjs.com/package/react-multi-carousel
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.

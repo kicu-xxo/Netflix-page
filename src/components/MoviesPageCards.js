@@ -3,13 +3,15 @@ import { Badge } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+// Movies 페이지에 보여지는 영화 카드 컴포넌트.
 const MoviesPageCards = ({ item }) => {
-  // console.log({ item });
   const navigate = useNavigate();
   const { genreList } = useSelector((state) => state.movie);
+
   const goDetails = () => {
     navigate(`/movies/${item.id}`);
   };
+
   return (
     <div
       onClick={goDetails}
