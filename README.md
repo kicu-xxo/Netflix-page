@@ -59,7 +59,7 @@ Netflix를 참고한 영화 정보를 확인할 수 있는 웹 사이트 입니�
 
 <br/>
 
-<img width="50%" src="https://user-images.githubusercontent.com/121851869/219293844-5e3fafd6-e1a0-50ad-860a-be78863410ff.PNG" />
+<img width="50%" src="https://user-images.githubusercontent.com/121851869/219293844-5e3fafd6-e1a0-40ad-860a-be78863410ff.PNG" />
 
 트레일러 영상
 
