@@ -41,43 +41,43 @@ Netflix를 참고한 영화 정보를 확인할 수 있는 웹 사이트 입니�
 
 ## 📸 Screen Shot 📸
 
-<img width="40%" src="https://user-images.githubusercontent.com/121851869/219293901-0cc81581-8fd2-4d4c-b8cc-fcf9cf9003e9.PNG" />
+<img width="50%" src="https://user-images.githubusercontent.com/121851869/219293901-0cc81581-8fd2-4d4c-b8cc-fcf9cf9003e9.PNG" />
 
 메인 페이지
 
 <br/>
 
-<img width="40%" src="https://user-images.githubusercontent.com/121851869/219293928-6f586bfb-ab05-4686-abab-0acf6b65ce5a.PNG" />
+<img width="50%" src="https://user-images.githubusercontent.com/121851869/219293928-6f586bfb-ab05-4686-abab-0acf6b65ce5a.PNG" />
 
 메인 페이지 슬라이더
 
 <br/>
 
-<img width="40%" src="https://user-images.githubusercontent.com/121851869/219293837-b7b1d7cf-3d11-4a90-886d-449be16cbffb.PNG" />
+<img width="50%" src="https://user-images.githubusercontent.com/121851869/219293837-b7b1d7cf-3d11-4a90-886d-449be16cbffb.PNG" />
 
 영화 디테일 페이지
 
 <br/>
 
-<img width="40%" src="https://user-images.githubusercontent.com/121851869/219293844-5e3fafd6-e1a0-40ad-860a-be78863410ff.PNG" />
+<img width="50%" src="https://user-images.githubusercontent.com/121851869/219293844-5e3fafd6-e1a0-50ad-860a-be78863410ff.PNG" />
 
 트레일러 영상
 
 <br/>
 
-<img width="40%" src="https://user-images.githubusercontent.com/121851869/219293855-2ea576f7-88a7-4fd0-ac18-fd0a957f4848.PNG" />
+<img width="50%" src="https://user-images.githubusercontent.com/121851869/219293855-2ea576f7-88a7-4fd0-ac18-fd0a957f4848.PNG" />
 
 영화 리뷰
 
 <br/>
 
-<img width="40%" src="https://user-images.githubusercontent.com/121851869/219293858-bb5dd7b8-78b3-4a29-be29-db202da0a3a9.PNG" />
+<img width="50%" src="https://user-images.githubusercontent.com/121851869/219293858-bb5dd7b8-78b3-4a29-be29-db202da0a3a9.PNG" />
 
 추천 영화
 
 <br/>
 
-<img width="40%" src="https://user-images.githubusercontent.com/121851869/219293881-36656062-5def-4291-a146-40e73b6bc47d.PNG" />
+<img width="50%" src="https://user-images.githubusercontent.com/121851869/219293881-36656062-5def-4291-a146-40e73b6bc47d.PNG" />
 
 영화 검색 페이지
 
