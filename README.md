@@ -5,8 +5,6 @@
 <br/>
 Netflix를 참고한 영화 정보를 확인할 수 있는 웹 사이트 입니다.
 
----
-
 <br/>
 <br/>
 
@@ -19,11 +17,6 @@ Netflix를 참고한 영화 정보를 확인할 수 있는 웹 사이트 입니�
 <img src="https://img.shields.io/badge/react-61DAFB?style=flat-square&logo=react&logoColor=white">
 <img src="https://img.shields.io/badge/sass-CC6699?style=flat-square&logo=sass&logoColor=white">
 </p>
-
-<br/>
-<br/>
-
----
 
 <br/>
 <br/>
@@ -42,11 +35,6 @@ Netflix를 참고한 영화 정보를 확인할 수 있는 웹 사이트 입니�
 4. 페이지 상단의 검색창에 영화를 검색할 수 있습니다. (영어, 한국어)
 
 5. 모바일에서 접근 시 보기 편하게 레이아웃 변경
-
-<br/>
-<br/>
-
----
 
 <br/>
 <br/>
@@ -92,11 +80,6 @@ Netflix를 참고한 영화 정보를 확인할 수 있는 웹 사이트 입니�
 <img width="40%" src="https://user-images.githubusercontent.com/121851869/219293881-36656062-5def-4291-a146-40e73b6bc47d.PNG" />
 
 영화 검색 페이지
-
-<br/>
-<br/>
-
----
 
 <br/>
 <br/>
